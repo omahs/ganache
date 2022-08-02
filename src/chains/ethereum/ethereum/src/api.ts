@@ -2931,11 +2931,12 @@ export default class EthereumApi implements Api {
    * console.log(transactionTrace);
    * ```
    */
+  @assertArgLength(1, 2)
   async debug_traceTransaction(
     transactionHash: DATA,
-    options?: Ethereum.TraceTransactionOptions
+    options: Ethereum.TraceTransactionOptions = {}
   ): Promise<Ethereum.TraceTransactionResult<"private">> {
-    return this.#blockchain.traceTransaction(transactionHash, options || {});
+    return this.#blockchain.traceTransaction(transactionHash, options);
   }
 
   // TODO: example doesn't return correct value
@@ -2981,6 +2982,7 @@ export default class EthereumApi implements Api {
    * console.log(storage);
    * ```
    */
+  @assertArgLength(5)
   async debug_storageRangeAt(
     blockHash: DATA,
     transactionIndex: number,
