@@ -2990,7 +2990,14 @@ export default class EthereumApi implements Api {
     startKey: DATA,
     maxResult: number
   ): Promise<Ethereum.StorageRangeAtResult<"private">> {
-    return this.#blockchain.storageRangeAt(
+    const blockchain = this.#blockchain;
+    if (blockchain.fallback) {
+      throw new Error(
+        "debug_storageRangeAt is not supported on a forked network. See https://github.com/trufflesuite/ganache/issues/3488 for details."
+      );
+    }
+
+    return blockchain.storageRangeAt(
       blockHash,
       Quantity.toNumber(transactionIndex),
       contractAddress,
