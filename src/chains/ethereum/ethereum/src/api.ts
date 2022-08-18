@@ -2973,7 +2973,7 @@ export default class EthereumApi implements Api {
    * const {contractAddress} = await provider.request({ method: "eth_getTransactionReceipt", params: [initialTxHash] });
    *
    * // set value to 19
-   * const data = "0x552410770000000000000000000000000000000000000000000000000000000000000019";
+   * const data = "0x3fa4f2450000000000000000000000000000000000000000000000000000000000000019";
    * const txHash = await provider.request({ method: "eth_sendTransaction", params: [{ from, to: contractAddress, data }] });
    * await provider.once("message"); // Note: `await provider.once` is non-standard
    *
