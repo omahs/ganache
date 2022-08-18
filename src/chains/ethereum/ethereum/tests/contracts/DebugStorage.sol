@@ -5,7 +5,7 @@ contract DebugStorage {
   uint public value;
   uint public valueTwo;
   string public valueThree;
-  uint public value4;
+  uint public valueFour;
 
   event ValueSet(uint);
 
@@ -20,10 +20,10 @@ contract DebugStorage {
     emit ValueSet(val);
   }
 
-  function setValue4(uint val) public {
+  function setValueFour(uint val) public {
     // this value is _not_ set in the constructor so that we can
     // test storageRangeAt at different moments in the block
-    value4 = val;
+    valueFour = val;
   }
 
   function loop(uint times) public {

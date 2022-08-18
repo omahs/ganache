@@ -261,7 +261,7 @@ describe("api", () => {
             // change an existing value (at value1)
             updateValue("setValue(uint256)", "1"),
             // set a value for the first time (at *value4*)
-            updateValue("setValue4(uint256)", "1337"),
+            updateValue("setValueFour(uint256)", "1337"),
             // change an existing value (at value1)
             updateValue("setValue(uint256)", "2")
           ]);
