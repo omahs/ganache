@@ -1168,7 +1168,6 @@ export default class Blockchain extends Emittery<BlockchainTypedEvents> {
     block: RuntimeBlock & { transactions: VmTransaction[] }
   ): Promise<VM & { stateManager: GanacheStateManager }> => {
     const blocks = this.blocks;
-    // ethereumjs vm doesn't use the callback style anymore
     const blockchain = {
       getBlock: async (number: BN) => {
         const block = await blocks.get(number.toBuffer()).catch(_ => null);
