@@ -115,21 +115,13 @@ To install Ganache into an npm project, run:
 $ npm install ganache
 ```
 
-You can then add Ganache to your package.json scripts:
-
-```json
-"scripts": {
-  "ganache": "ganache --wallet.seed myCustomSeed"
-}
-```
-
-_See [Documentation](#documentation) for additional command line options._
-
 Then start it:
 
 ```console
-$ npm run ganache
+$ ganache
 ```
+
+_See [Documentation](#documentation) for additional command line options._
 
 ### Programmatic use
 
