@@ -1,5 +1,5 @@
-function pick(source: string[]) {
-  const partIndex = Math.floor(Math.random() * source.length);
+function pick(source: string[], random: () => number) {
+  const partIndex = Math.floor(random() * source.length);
   return source[partIndex];
 }
 /**
@@ -7,14 +7,17 @@ function pick(source: string[]) {
  * generated from an adjective, a flavor and a type of desert, in the form of
  * `<adjective>_<flavor>_<type>`, eg., `salted_caramel_ganache`.
  */
-export default function createInstanceName() {
-  const name = [adjectives, flavors, kinds].map(pick).join("_");
+export default function createInstanceName(random: () => number = Math.random) {
+  const name = [adjectives, flavors, kinds]
+    .map(source => pick(source, random))
+    .join("_");
   return name;
 }
 
 const adjectives = [
   "baked",
   "candied",
+  "creamy",
   "deepfried",
   "frozen",
   "hot",
@@ -48,7 +51,7 @@ const flavors = [
   "orange",
   "peanut",
   "plum",
-  "poppy-seed",
+  "poppyseed",
   "rhubarb",
   "strawberry",
   "sugar",
